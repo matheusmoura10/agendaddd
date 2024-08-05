@@ -79,12 +79,12 @@ public class MedicServiceImpl implements MedicService {
     }
 
     @Override
-    public MedicDTO findById(String id) {
+    public MedicEntity findById(String id) {
 
         MedicModel medicModel = medicRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Medic not found"));
 
-        return medicMapper.toDTO(medicModel);
+        return medicMapper.toEntity(medicModel);
     }
 
     @Override

@@ -16,7 +16,7 @@ public interface MedicService {
 
     void delete(String id);
 
-    MedicDTO findById(String id);
+    MedicEntity findById(String id);
 
     public PaginationDTO<MedicDTO> findAll(PaginationRequestDTO<MedicModel> paginationRequestDTO);
 }

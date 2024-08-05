@@ -43,7 +43,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     public AppointmentDTO create(AppointmentDTO appointmentDTO) {
 
         AppointmentEntity entity = appointmentMapper.toEntity(appointmentDTO);
-        entity.setMedicEntity(medicService.findByIdEntity(appointmentDTO.getMedicId()));
+        MedicEntity medicEntity = medicService.findByIdEntity(appointmentDTO.getMedicId());
+        entity.setMedicEntity(medicEntity);
 
         AppointmentCalendarModel model = appointmentMapper.toModel(entity);
 

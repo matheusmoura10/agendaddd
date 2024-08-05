@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wareline.agenda.application.medic.dto.MedicDTO;
 import com.wareline.agenda.application.medic.services.MedicService;
+import com.wareline.agenda.domain.medic.MedicEntity;
 import com.wareline.agenda.infra.model.MedicModel;
 import com.wareline.agenda.shared.dtos.pagination.PaginationDTO;
 import com.wareline.agenda.shared.dtos.pagination.PaginationRequestDTO;
@@ -55,11 +56,11 @@ public class MedicController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GenericResponse<MedicDTO>> findById(@PathVariable String id) {
+    public ResponseEntity<GenericResponse<MedicEntity>> findById(@PathVariable String id) {
 
-        MedicDTO entity = medicService.findById(id);
+        MedicEntity entity = medicService.findById(id);
 
-        return ResponseEntity.ok(GenericResponse.<MedicDTO>builder()
+        return ResponseEntity.ok(GenericResponse.<MedicEntity>builder()
                 .code(200)
                 .message("Medic found successfully")
                 .data(entity)

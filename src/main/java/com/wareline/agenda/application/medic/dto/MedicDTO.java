@@ -1,5 +1,7 @@
 package com.wareline.agenda.application.medic.dto;
 
+import java.util.List;
+
 import com.wareline.agenda.shared.dtos.address.AddressDTO;
 
 import jakarta.validation.Valid;
@@ -34,9 +36,7 @@ public class MedicDTO {
     @Email(message = "Email should be valid")
     private String email;
 
-    @Size(min = 3, max = 100, message = "Specialty should have between 3 and 100 characters")
-    @NotBlank(message = "Specialty is mandatory")
-    private String specialty;
+    private List<Long> specialities;
 
     @Valid
     private AddressDTO address;

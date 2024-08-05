@@ -15,9 +15,8 @@ import com.wareline.agenda.infra.model.AppointmentCalendarModel;
 public interface AppointmentMapper {
     AppointmentMapper INSTANCE = Mappers.getMapper(AppointmentMapper.class);
 
+    @Mapping(target = "medicEntity", ignore = true)
     AppointmentEntity toEntity(AppointmentDTO appointmentDTO);
-
-    AppointmentCalendarModel toModel(AppointmentDTO appointmentDTO);
 
     @Mapping(target = "dateRange.start", source = "startDate")
     @Mapping(target = "dateRange.end", source = "endDate")
